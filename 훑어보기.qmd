@@ -1,0 +1,46 @@
+---
+title: "Quicklook"
+author: "wintree, Ph.D."
+format: html
+---
+
+## R 훑어보기
+
+R 환경에서 할 수 있는 작업들을 빠르게 살펴 보자. (RStudio 실행)
+
+## 그래프
+
+다음 명령들을 콘솔(Comsole) 탭에 차례로 입력하면 간단한 그래프를 그려준다. (현 단계에서 그래프 출력 관련한 사용자 설정 방법은 무시)
+
+```{r}
+x <- rnorm(50)
+y <- rnorm(x)
+plot(x, y)
+```
+
+위 명령의 결과로 생성된 객체 x, y 들을 환경(Environment) 탭에서 확인할 수 있다. 확인 후 다음 명령들을 실행해 보자.
+
+```{r}
+ls()
+rm(x, y)
+```
+
+R을 사용하여 간단한 선형회귀분석을 실행해 보자.
+
+먼저 데이터 독립변수 x, 종속변수 y 로 이루어진 데이터프레임을 만들고,
+
+```{r}
+x <- 1:20
+w <- 1 + sqrt(x)/2
+dummy <- data.frame(x = x, y = x + rnorm(x)*w)
+dummy
+```
+
+가중치 반영여부에 따른 회귀분석 결과를 비교해 보자.
+
+```{r}
+fm <- lm(y ~ x, data = dummy)
+summary(fm)
+fm1 <- lm(y ~ x, data = dummy, weight = 1/w^2)
+summary(fm1)
+```
