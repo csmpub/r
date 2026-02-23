@@ -1,0 +1,47 @@
+---
+title: "Vectors"
+author: "wintree, Ph.D."
+format: html
+---
+
+## 벡터 Vectors
+
+벡터는 변수에 타입결 개별 값을 지정하는 방법으로 생성하며, 길이가 1보다 큰 벡터는 함수 "c()" 를 사용한다.
+
+```{r}
+l_v1 <- TRUE
+l_v2 <- F
+i_v1 <- 16L
+i_v2 <- 0x52afL
+r_v1 <- 3.1954
+r_v2 <- 2.14e3
+c_v1 <- "hello"
+c_v2 <- 'have a nice day'
+```
+
+```{r}
+l_v1
+l_v2
+i_v1
+i_v2
+r_v1
+r_v2
+c_v1
+c_v2
+```
+
+```{r}
+l_var <- c(TRUE, FALSE, F, T)
+i_var <- c(25L, 1e3L, 0xfa24L)
+r_var <- c(3.14159, 1.57453e4, 0x63bc)
+c_var <- c("hello", "R", 'good', 'luck')
+test_c <- c(c(1, 2, 3), c(4, 5, 6, 7))
+```
+
+```{r}
+l_var
+i_var
+r_var
+c_var
+test_c
+```
