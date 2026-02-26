@@ -4,9 +4,9 @@ author: "wintree, Ph.D."
 format: html
 ---
 
-## 벡터 인덱싱(Indexing by vectors)
+## 벡터로 인덱싱(Indexing by vectors)
 
-정수 및 정수아닌 숫자
+### 정수 및 정수아닌 숫자
 
 ```{r, error=TRUE}
 # 길이 5인 벡터 생성하여 변수 x에 저장
@@ -34,7 +34,7 @@ x[6]
 x[-7]
 ```
 
-논리
+### 논리
 
 ```{r}
 # 길이 5인 벡터 생성하여 변수 x에 저장 
@@ -47,7 +47,7 @@ x[c(T, F)]
 x[c(F, T, F, T, T, T, F, T)]
 ```
 
-문자
+### 문자
 
 ```{r, error=TRUE}
 ## 길이 5인 이름을 갖는 기본벡터 생성하고 변수 x에 저장
@@ -77,7 +77,7 @@ mth[['aa', exact=NA]]
 mth[['aa', exact=F]]
 ```
 
-팩터
+### 팩터
 
 ```{r}
 # 팩터(factor) 생성하고 변수 x에 저장
@@ -87,7 +87,7 @@ x[1]
 x[[3]]
 ```
 
-비어있음(empty), NULL, NA를 사용한 인덱싱
+### 비어있음(empty), NULL, NA를 사용한 인덱싱
 
 ```{r}
 # 1부터 5까지 연속되는 숫자로 구성된 벡터를 변수 x에 저장
@@ -112,7 +112,7 @@ length(x[NA])
 length(x[c(1, NA)])
 ```
 
-## 행렬 배열(Indexing matrices and arrays)
+## 행렬 및 배열 인덱싱 (Indexing matrices and arrays)
 
 ```{r}
 m <- matrix(1:4, 2)
