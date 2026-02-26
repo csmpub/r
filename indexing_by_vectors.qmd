@@ -1,0 +1,122 @@
+---
+title: "Indexing"
+author: "wintree, Ph.D."
+format: html
+---
+
+## 벡터 인덱싱(Indexing by vectors)
+
+정수 및 정수아닌 숫자
+
+```{r, error=TRUE}
+# 길이 5인 벡터 생성하여 변수 x에 저장
+x <- c(2, 9, 15, -6, 5)
+
+## 정수 인덱싱
+# 양의 정수
+x[2]
+# 음의 정수
+x[-3]
+# 정수 아님
+x[2.54]
+x[-3.14]
+
+## 벡터 인덱싱
+# 모든 요소 양의 정수
+x[c(1, 4)]
+# 모든 요소 음의 정수
+x[-c(2, 5)]
+# 요소에 양수와 음수 혼합
+x[2, -5]
+# 벡터 길이 초과(양수)
+x[6]
+# 벡터 길이 초과(음수)
+x[-7]
+```
+
+논리
+
+```{r}
+# 길이 5인 벡터 생성하여 변수 x에 저장 
+x <- c('have', 'a', 'good', 'nice', 'day')
+# 인덱스와 벡터 길이가 같은 경우
+x[c(T, T, T, F, T)]
+# 인덱스가 벡터 길이보다 짧은 경우
+x[c(T, F)]
+# 인덱스가 벡터 길이보다 긴 경우
+x[c(F, T, F, T, T, T, F, T)]
+```
+
+문자
+
+```{r, error=TRUE}
+## 길이 5인 이름을 갖는 기본벡터 생성하고 변수 x에 저장
+x <- 1:5
+names(x) <- c('one', 'two', 'three', 'four', 'five')
+# '[' 연산자는 속성 유지
+x['three']
+str(x['three'])
+# '[[' 연산자는 속성 제거
+x[['four']]
+str(x[['four']])
+# '$' 연산자는 사용 불가
+x$'two'
+
+## 세개의 백터로 구성된 이름을 갖는 리스트 생성 및 저장
+mth <- list(1:12, month.abb, month.name)
+names(mth) <- c('ab', 'aabb', 'bb')
+# '[' 연산자는 부분 일치 불허 
+mth['ab']
+mth['aa']
+# '$' 연산자는 부분 일치 허용
+mth$ab
+mth$aa
+# '[[' 연산자는 부분 일치 exact 옵션에 따름
+mth[['aa', esact=T]]
+mth[['aa', exact=NA]]
+mth[['aa', exact=F]]
+```
+
+팩터
+
+```{r}
+# 팩터(factor) 생성하고 변수 x에 저장
+x <- factor(c("pass", "fail", "accept as-is"))
+x
+x[1]
+x[[3]]
+```
+
+비어있음(empty), NULL, NA를 사용한 인덱싱
+
+```{r}
+# 1부터 5까지 연속되는 숫자로 구성된 벡터를 변수 x에 저장
+x <- c(1:5)
+
+## 비어있음, NULL
+x[]
+x[NULL]
+
+## NA
+# 인덱싱에 사용될 논리 벡터(NA 포함)를 생성하여 변수 i_l에 저장
+i_l <- c(T, NA, F, T, T)
+
+# NA 인덱싱은 NA 반환
+x[NA]
+# 인덱싱 벡터에 NA가 포함된 경우
+x[i_l]
+length(x[i_l])
+
+## NA 상수의 자동 변환
+length(x[NA])
+length(x[c(1, NA)])
+```
+
+## 행렬 배열(Indexing matrices and arrays)
+
+```{r}
+m <- matrix(1:4, 2)
+m
+i <- matrix(c(1, 1, 2, 2), 2, byrow = TRUE)
+i
+```
