@@ -1,0 +1,44 @@
+---
+title: "lists"
+author: "wintree, Ph.D."
+format: html
+---
+
+## 리스트(Lists)
+
+리스트는 데이터 프레임의 기초(데이퍼 프레임은 리스트에 클라스 부여)
+
+### 데이터 프레임 women
+
+datasets 패키지에 포함된 30-38세 미국 여성 15명의 키(in)와 몸무게(lb)
+
+```{r}
+head(women)
+str(women)
+typeof(women)
+class(women)
+```
+
+리스트의 인덱싱
+
+```{r}
+typeof(women[1])
+class(women[1])
+str(women[1])
+typeof(women[[1]])
+class(women[[1]])
+str(women[[1]])
+typeof(women$weight)
+class(women$weight)
+str(women$weight)
+```
+
+리스트 생성
+
+```{r}
+dt <- list(
+  id = 1, name = "R", vec = c(10, 20, 30),
+  mat = matrix(1:4, nrow = 2)
+)
+print(list_data)
+```
